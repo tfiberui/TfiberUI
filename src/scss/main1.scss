@@ -1,0 +1,41 @@
+@import 'variables', 'fonts', 'mixins', 'common';
+
+/* Generic Page Style Starts */
+
+/* Generic Page Style Ends */
+
+/* Goverment Page Style Starts */
+.government {	
+	.curved-card-wrapper {
+		display: flex;
+		justify-content: space-between;
+		gap: 40px;
+    	position: relative;
+    	top: -80px;
+	}
+	.header-two {
+		font-size: 48px;		
+		color: #b011ff;
+		text-align: center;
+		font-weight: 600;
+    	margin: 0 0 6px;
+    	padding: 0;
+		font-family: MontserratRegular;
+	}
+	.paragraph {
+		font-size: 24px;		
+		font-weight: 500;
+		color: #000000;
+		text-align: center;
+    	margin: 0;
+    	padding: 0;
+		font-family: MontserratRegular;
+	}
+	.hexagon.section {
+		padding-top: 50px;
+		.hexagon-section {
+			padding: 100px 0;
+		}
+	}
+}
+/* Goverment Page Style Ends */

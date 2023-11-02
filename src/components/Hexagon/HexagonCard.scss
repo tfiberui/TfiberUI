@@ -1,0 +1,204 @@
+.hexagon-card {
+    background-color: transparent;
+    perspective: 1000px;
+      width: 400px;
+      height: 230px;
+      .hexagon-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.6s;
+          transform-style: preserve-3d;
+          .hexagon-front, .hexagon-back {
+              cursor: default;
+              position: relative;
+              width: 400px; 
+              height: 230.94010767585033px;
+              background-color: #9fa9c1;
+              margin: 115.47005383792516px auto 0 auto;
+              box-shadow: 0 0 50px rgba(0,255,255,0);
+              border-left: solid 0px #f47721;
+              border-right: solid 0px #f47721;
+              display: grid;
+              transition: 0s;
+              -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              &:after, &:before {
+                  content: "";
+                  position: absolute;
+                  z-index: 1;
+                  width: 282.84271247461896px;
+                  height: 282.84271247461896px;
+                  transform: scaleY(0.5774) rotate(-45deg);
+                  background-color: inherit;
+                  left: 58.57864376269052px;
+                  box-shadow: 0 0 50px rgba(0,255,255,0);
+                  transition: 0s;
+              }
+              &:before {
+                  top: -141.42135623730948px;
+                  border-top: solid 0px #f47721;
+                  border-right: solid 0px #f47721;
+              }
+              &:after {
+                  bottom: -141.42135623730948px;
+                  border-bottom: solid 0px #f47721;
+                  border-left: solid 0px #f47721;
+              }
+          }
+          .hexagon-back {
+              transform: rotateY(180deg);
+              background: linear-gradient(210.25deg, #B011FF 18.95%, #500179 82.4%);
+              .bg {
+                  z-index: 2;
+                  position: absolute;
+                  width: 100%;
+                  top: -115px;
+              }
+              .content {
+                  width: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  z-index: 2;
+                  position: relative;
+                  color: #ffffff;
+                  top: -30px;
+                  height: 110%;
+                  cursor: pointer;
+                  img {
+                      width: 125px;
+                  }
+                  h3 {
+                      margin-top: -10px;
+                      font-size: 32px;
+                      margin-bottom: 0;
+                      width: 60%;
+                      text-align: center;
+                      position: absolute;
+                  }
+                  p {
+                      font-size: 17px;
+                      width: 60%;
+                      text-align: center;
+                      margin-top: 75px;
+                  }
+              }
+              .cta {
+                  z-index: 2;
+                  width: 60%;
+                  margin: auto;
+                  display: flex;
+                  justify-content: center;
+                  a {
+                      background-color: #ffffff;
+                      font-size: 18px;
+                      text-decoration: none;
+                      border-radius: 20px;
+                      padding: 5px 15px;
+                      cursor: pointer;
+                  }
+              }
+          }
+          .hexagon-front {
+              display: flex;
+              .bg {
+                  z-index: 2;
+                  position: absolute;
+                  width: 100%;
+                  top: -115px;
+              }
+              .content {
+                  width: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  z-index: 2;
+                  position: relative;
+                  color: #ffffff;
+                  top: -22px;
+                  height: 125%;
+                  cursor: pointer;
+                  img {
+                      width: 125px;
+                  }
+                  .text-wrapper {
+                      width: 60%;
+                    h3 {
+                        margin-top: 40px;
+                        font-size: 32px;
+                        margin-bottom: 0;
+                        width: 100%;
+                        text-align: center;
+                        position: relative;
+                        animation-duration: 0.8s;
+                        animation-name: moveDown;                     
+                    }
+                    h4 {
+                        font-size: 18px;
+                        width: 100%;
+                        text-align: center;
+                        margin-top: 10px;		
+                    }
+
+                }
+                 
+              }
+          }
+      }
+      &.flip {
+          .hexagon-wrapper {
+              transform: rotateY(180deg);
+              .hexagon-front {
+                  .content {
+                      display: none;
+                  }
+              }
+              .hexagon-back {
+                  z-index: 3;
+                  .content {
+                      h3 {
+                          animation-duration: 0.8s;
+                          animation-name: moveUp;
+                      }
+                  }
+              }
+          }
+      }
+  }
+  
+  @keyframes moveUp {
+      from {
+          top: 190px;
+          font-size: 32px;
+      }
+  
+      50% {
+          font-size: 26px;
+      }
+      
+      to {
+          top: 0px;
+          font-size: 32px;
+      }
+  }
+  
+  @keyframes moveDown {
+      from {
+          top: -145px;
+          font-size: 32px;
+      }
+  
+      50% {
+          font-size: 26px;
+      }
+    
+      to {
+          top: 0px;
+          font-size: 32px;
+      }
+  }
+  

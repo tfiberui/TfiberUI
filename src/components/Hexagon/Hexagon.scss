@@ -1,0 +1,12 @@
+.hexagon-container {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	.hexagon-cards {
+		display: flex;
+    justify-content: space-between;
+	}
+	.view-details {
+		margin-top: 275px;
+	}
+}

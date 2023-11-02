@@ -1,0 +1,44 @@
+.hexagon-details {
+    display: none;
+      &.show {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+          .detail {
+              display: flex;
+              width: calc(100% - 70px);
+              justify-content: space-between;
+              padding: 20px 30px 15px 40px;
+              -webkit-box-shadow: 0px 0px 10px 1px rgba(163,155,163,1);
+              -moz-box-shadow: 0px 0px 10px 1px rgba(163,155,163,1);
+              box-shadow: 0px 0px 10px 1px rgba(163,155,163,1);
+              align-items: center;
+              border-radius: 10px;
+              height:58px;
+              h3 {
+                  font-size: 22px;
+                  line-height: 22px;
+              }
+              p {
+                  font-size: 16px;
+                  width: 20%;
+                  &.price {
+                      font-size: 14px;
+                      span {
+                          display: block;
+                          font-size: 18px;
+                          font-weight: bold;
+                      }
+                  }
+              }
+              a {
+                  text-decoration: none;
+                  color: #7500AF;
+                  border-radius: 20px;
+                  padding: 4px 8px;
+                  border: 2px solid #7500AF;
+                  font-weight: bold;
+              }
+          }
+      }
+  }
