@@ -24,7 +24,7 @@ const pageData = {
             hexagonData: [
                 {
                     title: 'Broadband',
-                    logo: '/public/assets/technology2.png',
+                    logo: '/public/assets/broadband.gif',
                     subtitle: '24/7 reliable internet connectivity',
                     description: 'Reliable and high-speed broadband internet access is fundamental for government operations. T-Fiber offers robust internet solutions to keep government agencies online 24/7.',
                     cta: {
@@ -45,7 +45,7 @@ const pageData = {
                 },
                 {
                     title: 'Internet <br/> Leased Line',
-                    logo: '/public/assets/technology1.png',
+                    logo: '/public/assets/internet_leased_line.gif',
                     subtitle: 'Guaranteed uninterrupted connectivity ',
                     description: 'T-Fibers leased line services gurantees dedicated bandwidth. Ideal for institution having large number of users and spread across the campus. Users with data-intensive applications will benefit from uniterrupted connectivity.',
                     cta: {
@@ -74,7 +74,7 @@ const pageData = {
                 },
                 {
                     title: 'IP-VPN',
-                    logo: '/public/assets/technology3.png',
+                    logo: '/public/assets/vpn.gif',
                     subtitle: 'Seamless and secure communication channels',
                     description: 'T-Fibers IP VPN services provide secure and seamless communication channels for government services. Ensure confidential data transmission and interconnect geographically dispersed offices with ease.',
                     cta: {

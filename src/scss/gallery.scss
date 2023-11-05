@@ -18,6 +18,9 @@
         color: #8c0080;
         font-size: 24px;
     }
+    p{
+        padding-top: 40px;
+    }
 }
 .gallery_section{
     width: 94%;
@@ -53,7 +56,32 @@
 }
 .react-multi-carousel-list{
     width: 100% !important;
-    padding-left: 100px;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+.events{
+    margin: 50px 0px 0px 5px;
+    h4{
+        color: #8c0080;
+    }
+}
+.viewAll_btn{
+    padding: 2px 25px;
+    display: block;
+    font-size: 15px;
+    border: 2px solid #7500af;
+    border-radius: 50px;
+    background-color: white;
+    color: #7500af;
+    margin: 25px auto auto auto;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 29.26px;
+    margin-right: 20px;
+}
+.viewAll_btn:hover{
+    background-color: #8c0080;
+    color: #fff;
 }
 .react-multiple-carousel__arrow{
     background: #58047c!important;

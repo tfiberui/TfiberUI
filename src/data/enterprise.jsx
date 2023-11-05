@@ -24,7 +24,7 @@ const pageData = {
             hexagonData: [		
                 {
                     title: 'Broadband',
-                    logo: '/public/assets/res1.png',
+                    logo: '/public/assets/broadband.gif',
                     subtitle: '24/7 reliable internet connectivity',
                     description: 'Modern enterprises require high-speed internet, and T-Fiber delivers just that. Stay ahead of the competition with robust internet solutions designed to keep your business agile and responsive to market demands.',
                     cta: {
@@ -46,7 +46,7 @@ const pageData = {
                 },
                 {
                     title: 'Internet Leased Line',
-                    logo: '/public/assets/celltowerflip2.png',
+                    logo: '/public/assets/internet_leased_line.gif',
                     subtitle: 'Guaranteed uninterrupted connectivity',
                     description: 'Maintain constant connectivity for your enterprise with our dedicated leased line services. Enjoy symmetrical bandwidth and uninterrupted network access, ideal for mission-critical operations.',
                     cta: {
@@ -68,7 +68,7 @@ const pageData = {
                 },        
                 {
                     title: 'IP-VPN',
-                    logo: '/public/assets/technology3.png',
+                    logo: '/public/assets/vpn.gif',
                     subtitle: 'Seamless and secure communication channels',
                     description: 'Ensure secure and seamless communication for your enterprise with T-Fibers IP VPN services. Connect remote offices, branches, and data centers confidently, with a focus on data security and reliability.',
                     cta: {

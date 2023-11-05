@@ -25,7 +25,7 @@ const pageData = {
             hexagonData:[
                 {
                     title: 'Broadband',
-                    logo: '/public/assets/res1.png',
+                    logo: '/public/assets/broadband.gif',
                     subtitle: 'Lightening fast internet speed',
                     description: 'Experience lightning-fast internet speeds for all your online needs through T-Fiber Partners. Say goodbye to buffering and slow downloads, and embrace a seamless online experience.',
                     cta: {
@@ -46,7 +46,7 @@ const pageData = {
                 },
                 {
                     title: 'Digital Live TV',
-                    logo: '/public/assets/res2.png',
+                    logo: '/public/assets/digital.gif',
                     subtitle: 'Quality entertainment and information needs',
                     description: 'Modify your cable connection with ‘fiber to the home’ live digital TV channels for your quality entertainment and information needs. Enjoy your favorite shows in high definition without interruption.',
                     cta: {
@@ -67,7 +67,7 @@ const pageData = {
                 },
                 {
                     title: 'OTT',
-                    logo: '/public/assets/res3.png',
+                    logo: '/public/assets/ott.gif',
                     subtitle: 'Stream movies, series and more',
                     description: 'Dive into the world of on-demand streaming with popular OTT platforms. Stream movies, series, and more at your convenience.',
                     cta: {
@@ -89,7 +89,7 @@ const pageData = {
                 },
                 {
                     title: 'Voice Services',
-                    logo: '/public/assets/res4.png',
+                    logo: '/public/assets/call.gif',
                     subtitle: 'Stay connected effortlessly',
                     description: 'Stay connected with crystal-clear voice calls and convenient telephony features. Keep in touch with your loved ones effortlessly.',
                     cta: {
