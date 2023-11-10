@@ -3,10 +3,15 @@ import card_img1 from "/public/assets/Home/card_img_1.png";
 import card_img2 from "/public/assets/Home/card_img_2.png";
 import card_img3 from "/public/assets/Home/card_img_3.png";
 import card_img4 from "/public/assets/Home/card_img_4.png";
-import circle from "/public/assets/Home/bg_circle.png";
-import banner_11 from "/public/assets/Home/card_img_1_banner.png";
-import banner_12 from "/public/assets/Home/card_img_2_banner.png";
-import banner_13 from "/public/assets/Home/card_img_3_banner.png";
+
+// import banner_11 from "/public/assets/Home/card_img_1_banner.png";
+// import banner_12 from "/public/assets/Home/card_img_2_banner.png";
+// import banner_13 from "/public/assets/Home/card_img_3_banner.png";
+
+import broadband from "/public/assets/Home/broadband.gif";
+import ILL from "/public/assets/Home/ILL.gif";
+import VPN from "/public/assets/Home/VPN.gif";
+
 import banner_21 from "/public/assets/Home/banner_21.png";
 import banner_22 from "/public/assets/Home/banner_22.png";
 import banner_31 from "/public/assets/Home/banner_31.png";
@@ -30,13 +35,13 @@ const CardSlider = () => {
         text: "Efficiency in\nGovernance with\nDigital Connectivity Solutions",
         sub1: "Broadband",
         para1: "Including Internet",
-        img1: banner_11,
+        img1: broadband,
         sub2: "Internet Leased Line",
         para2: "Dedicated Connectivity",
-        img2: banner_12,
+        img2: ILL,
         sub3: "IP-VPN",
         para3: "P2P and P2MP",
-        img3: banner_13,
+        img3: VPN,
       },
     },
     {
@@ -84,13 +89,13 @@ const CardSlider = () => {
         text: "Digitalize your enterprise with secured high-speed connectibity services",
         sub1: "Broadband",
         para1: "Including Internet",
-        img1: banner_11,
+        img1: broadband,
         sub2: "Internet Leased Line",
         para2: "Dedicated Connectivity",
-        img2: banner_12,
+        img2: ILL,
         sub3: "IP-VPN",
         para3: "P2P and P2MP",
-        img3: banner_13,
+        img3: VPN,
       },
     },
   ];
@@ -177,7 +182,7 @@ const CardSlider = () => {
             <h3>{cardData[currentIndex].banner.text}</h3>
             <div className="banner_content_section">
               <div className="parent">
-                <img src={circle} alt="bg" className="card_img_bg" />
+                {/* <img src={circle} alt="bg" className="card_img_bg" /> */}
                 <img
                   src={cardData[currentIndex].banner.img1}
                   alt="img"
@@ -191,7 +196,7 @@ const CardSlider = () => {
             </div>
             <div className="banner_content_section">
               <div className="parent">
-                <img src={circle} alt="bg" className="card_img_bg" />
+                {/* <img src={circle} alt="bg" className="card_img_bg" /> */}
                 <img
                   src={cardData[currentIndex].banner.img2}
                   alt="img"
@@ -209,7 +214,7 @@ const CardSlider = () => {
               ) : (
                 <>
                   <div className="parent">
-                    <img src={circle} alt="bg" className="card_img_bg" />
+                    {/* <img src={circle} alt="bg" className="card_img_bg" /> */}
                     <img
                       src={cardData[currentIndex].banner.img3}
                       alt="img"

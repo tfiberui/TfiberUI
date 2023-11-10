@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Modal.scss";
 import modal_map from "/assets/Home/modal_map.png";
 import modal_close from "/assets/Home/modal_close.png";
+import errorIcon from "/assets/no.png";
 import { render } from "react-dom";
 import Map from "../Map/Map";
 import axios from "axios";
@@ -24,6 +25,7 @@ const Modal = ({ closeModal, addressValue }) => {
 
   //filtering
   const [filter, setFilter] = useState("");
+  let [isAvailable, setIsAvailable] = useState(true);
 
   //filtering json
   const renderMap = () => {
@@ -37,6 +39,7 @@ const Modal = ({ closeModal, addressValue }) => {
           // handle success
           console.log("Response:", response);
           let selectedIndex = 0;
+          let completeAddress = "";
 
           if (response.data.results.length > 1) {
             selectedIndex = response.data.results.reduce(
@@ -50,8 +53,17 @@ const Modal = ({ closeModal, addressValue }) => {
             );
           }
 
-          console.log("selectedIndex: ", response.data.results[selectedIndex].formatted_address);
-          console.log("selectedIndex: ", response.data.results[selectedIndex].formatted_address);
+          completeAddress = response.data.results[selectedIndex].formatted_address;
+          const addressArr = completeAddress.split(',');
+          if (addressArr.indexOf(" Telangana" || "Telangana") > -1) {
+            console.log("Available: ");
+            setIsAvailable(true);
+          } else {
+            console.log("Not Available");
+            setIsAvailable(false);
+          }
+
+          console.log("completeAddress: ", addressArr);
 
           setPosition(response.data.results[selectedIndex].geometry.location);
           setFilter(response.data.results[selectedIndex].formatted_address);
@@ -67,9 +79,8 @@ const Modal = ({ closeModal, addressValue }) => {
   };
 
   function handleAddress(){
-    console.log("Address: ", filter);
     closeModal(false);
-    addressValue(address);
+    addressValue(filter);
   }
 
   useEffect(() => {
@@ -95,13 +106,15 @@ const Modal = ({ closeModal, addressValue }) => {
             <>
               <div className="filtered">
                 <h3>{filter}</h3>
-                <img src={indicate} alt="arrow" onClick={handleAddress}/>
+                {isAvailable ? <img src={indicate} alt="arrow" className="arrowIcon" onClick={handleAddress}/> : ""}                
               </div>
               <hr />
             </>
           )}
         </div>
         <div className="modal_right">
+        {isAvailable ? (
+          <>
           <Map position={position} zoom={zoom} id="map-1" className="mapping" />
           <img
             src={modal_close}
@@ -109,6 +122,22 @@ const Modal = ({ closeModal, addressValue }) => {
             className="close_btn"
             onClick={() => closeModal(false)}
           />
+          </>
+        ) : (
+          <>
+          <div className="mapErrorHolder">
+              <img
+                src={errorIcon}
+                alt="not_available"
+                className="errorIcon"
+              />
+              <h2>Selected location is outside Telangana State</h2>
+              <p>Our services are limited to Telangana, India</p>
+          </div>
+          </>
+        )}
+
+            
         </div>
       </div>
     </div>

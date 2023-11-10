@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import map from "/public/assets/Home/map.png";
 import second_map from "/public/assets/Home/warangal.png";
-import pin_map from "../../assets/map.png";
+import pin_map from "/public/assets/map.png";
 import available from "/assets/healthicons_yes.png";
 import no from "/assets/no.png";
 import act from "/assets/Home/act.png";
@@ -12,9 +12,20 @@ import Modal from "../Modal/Modal";
 import * as XLSX from "xlsx";
 import axios from "axios";
 import Map from "../Map/Map";
+import Dropdown from "./Dropdown";
+import DropdownMandal from "./DropdownMandal";
+import DropdownGP from "./DropdownGP";
+import "./dropdown.scss";
+
 
 const NewForm = ({telangana, department}) => {
-  //form section logic
+ 
+    //select dropdown section
+  let [selectedDistrict, setSelectedDistrict] = useState("Select District");
+  const [selectedMandal, setSelectedMandal] = useState("Select Mandal");
+  const [selectedGP, setSelectedGP] = useState("Select Gram Panchayat");
+  const [isActiveDistrict, setIsActiveDistrict] = useState(true);
+
   const [visible, setVisible] = useState(false);
   const [residential, setResidential] = useState(false);
   const [government, setGovernment] = useState(false);
@@ -29,6 +40,8 @@ const NewForm = ({telangana, department}) => {
   const [gramError, setGramError] = useState(false);
   const [isPinError, setIsPinError] = useState(false);
   const [continueBtnDisabled, setContinueBtnDisabled] = useState(true);
+  const [isDistrictError, setIsDistrictError] = useState(false);
+
 
   
   let [formName, setFormName] = useState("");
@@ -59,7 +72,12 @@ const NewForm = ({telangana, department}) => {
   let [entOrgError, setEntOrgError] = useState(false);
   let [entEmailError, setEntEmailError] = useState(false);
   let [distNames, setDistNames] = useState([]);
+  let [districtError, setDistrictError] = useState(false);
+  let [mandalError, setMandalError] = useState(false);
+  let [gramErrorOpt2, setGramErrorOpt2] = useState(false);
 
+  const mobilePattern = new RegExp(/^(\+\d{1,3}[- ]?)?\d{10}$/);
+  const emailPattern = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
 
 
@@ -78,6 +96,8 @@ const NewForm = ({telangana, department}) => {
       }
     }
     else if(selectedOpt === 2){
+      console.log("selectedDistrict: ", selectedDistrict);
+      //selectedDistrict === "Select District" ? (setVisible(false), setIsDistrictError(true)) : (setVisible(true), setIsDistrictError(true));
       setIsPinError(false);
       setGramError(false);
       setVisible(true);
@@ -234,7 +254,7 @@ const NewForm = ({telangana, department}) => {
   const getCheckAvability = () => {
     if (lgd !== null) {   // setIsMandal
       axios
-        .get("http://localhost:3020", {
+        .get("http://172.28.10.10:3020", {
           params: {
             type: "GP",
             lgdCode: lgd,
@@ -257,7 +277,7 @@ const NewForm = ({telangana, department}) => {
 
   const saveFormData = () => {
         axios
-          .post("http://localhost:3020/saveData", {
+          .post("http://172.28.10.10:3020/saveData", {
             "leadSource": "WEBSITE",
             "subject": "",
             "winningProbability": "",
@@ -331,7 +351,7 @@ const NewForm = ({telangana, department}) => {
   const handleForm = (e) => {
     e.preventDefault();
     if(residential === true){
-      console.log(resData);
+      console.log("resData");
     }
     else if(government === true){
       console.log(govData);
@@ -398,7 +418,7 @@ const NewForm = ({telangana, department}) => {
   // ];
 
   //storing form data
-  const [pin, setPin] = useState(0);
+  const [pin, setPin] = useState("");
   const [gram, setGram] = useState("");
   const [mandal, setMandal] = useState("");
   const [district, setDistrict] = useState("");
@@ -537,6 +557,21 @@ const NewForm = ({telangana, department}) => {
   useEffect(() => {
     filterGramsbasedonPin();
   },[pin]);
+
+  useEffect(() => {
+    console.log("SelectedDistrict: ",selectedDistrict);
+    filterMandalbasedondistrict(selectedDistrict);
+  },[selectedDistrict]);
+
+  useEffect(() => {
+    console.log("SelectedMandal: ",selectedMandal);
+    filterGramBasedonMandal(selectedMandal);
+  },[selectedMandal])
+
+  useEffect(() => {
+    setGramValue(selectedGP);
+  },[selectedGP]);
+
 
 
   //for option 2
@@ -721,7 +756,6 @@ function handleDisable(e) {
   setSelectedOpt(e);
   let selectedOption = e;
   if(selectedOption == 1){
-    setGram("");
     setDistrictDisabled(true);
     setMandalDisabled(true);
     setOpt2PanchayatDisabled(true);
@@ -732,6 +766,14 @@ function handleDisable(e) {
     setDistrict("");
     setGram("");
     setSelectedOption3MapAddress("");
+    setSelectedDistrict("Select District");
+    setSelectedMandal("Select Mandal");
+    setSelectedGP("Select Gram Panchayat");
+    setIsActiveDistrict(true);
+
+    setIsDistrictError(false);
+    setMandalError(false);
+    setGramErrorOpt2(false);
   }
   if(selectedOption == 2){
     getDistrictNames();
@@ -746,6 +788,7 @@ function handleDisable(e) {
     setPin("");
     setGrams("");
     setSelectedOption3MapAddress("");
+    setIsActiveDistrict(false);
   }
   if(selectedOption == 3){
     setGram("");
@@ -760,6 +803,10 @@ function handleDisable(e) {
     setGram("");
     setPin("");
     setGrams("");
+    setSelectedDistrict("Select District");
+    setSelectedMandal("Select Mandal");
+    setSelectedGP("Select Gram Panchayat");
+    setIsActiveDistrict(true);
   }
 };
 
@@ -939,7 +986,7 @@ const addressValue= (address) => {
                               Enter Gram Panchayat here
                             </option>
                             {grams.length ? (grams.map((item, index) => (
-                              <option value={item} key={index}>
+                              <option value={item} key={index} className="selOptions">
                                 {item}
                               </option>
                             ))) : ""}
@@ -953,59 +1000,33 @@ const addressValue= (address) => {
                     
                     <div className="option2">
                     <div className="selectSection">
-                    <button type="button" data-number="2" onClick={() => {handleDisable(2), setIsPinError(false), setGramError(false)}}>Option 2</button></div>
+                    <button type="button" data-number="2" onClick={() => {handleDisable(2), setIsPinError(false), setGramError(false), setIsActiveDistrict(false)}}>Option 2</button></div>
                       
-                      <div className="district-wrapper">
-                        <select
-                          name="district"
-                          className="district"
-                          value={district}
-                          onChange={(e) => (setDistrict(e.target.value), filterMandalbasedondistrict(e.target.value))}
-                          disabled={districtDisabled ? true : null}
-                        >
-                          <option value="">Select District Name</option>
-                          {distNames.map((item, idx) => (
-                            <option value={item} key={idx}>
-                              {item}
-                            </option>
-                          ))}
-                        </select>
+                        <div className="opt2Overlay" style={{display: isActiveDistrict ? 'block' : 'none' }}></div>
+                        <div className="district-wrapper">
+                         <Dropdown
+                          selectedDistrict={selectedDistrict}// != "" || selectedDistrict != "Select District" ? selectedDistrict : ""} 
+                          setSelectedDistrict={setSelectedDistrict}
+                          districtList={distNames}
+                        />
+                        {/* <p className="invalid_p">{isDistrictError ? "Please Select District!" : ""}</p> */}
                       </div>
                       
                       <div className="mandal-wrapper">
-                        <select
-                          name="mandal"
-                          className="mandal"
-                          value={mandal}
-                          //onChange={(e) => setMandal(e.target.value)}
-                          onChange={(e) => (setMandal(e.target.value), filterGramBasedonMandal(e.target.value))}
-                          disabled={mandalDisabled ? true : null}
-                        >
-                          <option value="">Select Mandal Name</option>
-                          {mandalam.map((item, index) => (
-                            <option value={item} key={index}>
-                              {item}
-                            </option>
-                          ))}
-                        </select>
+                        <DropdownMandal
+                            selectedMandal={selectedMandal}
+                            setSelectedMandal={setSelectedMandal}
+                            mandalList={mandalam}
+                        />
+                        {/* <p className="invalid_p">{mandalError ? "Please Select Mandal!" : ""}</p> */}
                       </div>
                       <div className="panchayat-wrapper">
-                        <select
-                          name="panchayat"
-                          className="panchayat"
-                          //onChange={(e) => setGram(e.target.value)}
-                          onChange={(e) => setGramValue(e.target.value)}
-                          disabled={opt2PanchayatDisabled ? true : null}
-                        >
-                          <option value="">
-                            Select Gram Panchayat
-                          </option>
-                          {grammam.map((item, idx) => (
-                            <option value={item} key={idx}>
-                              {item}
-                            </option>
-                          ))}
-                        </select>
+                        <DropdownGP
+                          selectedGP={selectedGP}
+                          setSelectedGP={setSelectedGP}
+                          gpList={grammam}
+                        />
+                        {/* <p className="invalid_p">{gramErrorOpt2 ? "Please Select Gram Panchayat!" : ""}</p> */}
                       </div>
                     </div>
 
@@ -1093,9 +1114,15 @@ const addressValue= (address) => {
                   name="mobile"
                   value={formMobile}
                   //onChange={(e) => setFormMobile(e.target.value)}
-                  onChange={(e) => {setFormMobile(e.target.value), setResMobileError(false)}}
+                  // onChange={(e) => {setFormMobile(e.target.value), setResMobileError(false)}}
+                  onChange={(e) => {
+                    setFormMobile(e.target.value);
+                    if (!mobilePattern.test(e.target.value))
+                        setResMobileError(true);
+                    else setResMobileError(false);
+                    }}
                 />
-                {resMobileError ? <p className="error-small">Enter Mobile Number</p> : ""}
+                {resMobileError ? <p className="error-small">Enter Valid Mobile Number</p> : ""}
               </div>
             </div>
                 
@@ -1137,9 +1164,17 @@ const addressValue= (address) => {
                   name="mobile"
                     value={formMobile}
                     //onChange={handleGovChange}
-                    onChange={(e) => setFormMobile(e.target.value)}
+                    // onChange={(e) => setFormMobile(e.target.value)}
+                    onChange={(e) => {
+                      setFormMobile(e.target.value);
+
+                      if (!mobilePattern.test(e.target.value))
+                          setGovMobileError(true);
+                      else setGovMobileError(false);
+                      }}
+
                 />
-                {govMobileError ? <p className="error-small">Enter Mobile Number</p> : ""}
+                {govMobileError ? <p className="error-small">Enter Valid Mobile Number</p> : ""}
               </div>
             </div>
             <div className="input-wrapper-select">
@@ -1241,7 +1276,13 @@ const addressValue= (address) => {
                   name="mobile"
                     value={formMobile}
                     //onChange={handleCellChange}
-                    onChange={(e) => {setFormMobile(e.target.value), setCellMobileError(false)}}
+                    //onChange={(e) => {setFormMobile(e.target.value), setCellMobileError(false)}}
+                    onChange={(e) => {
+                      setFormMobile(e.target.value);
+                      if (!mobilePattern.test(e.target.value))
+                              setCellMobileError(true);
+                        else  setCellMobileError(false);
+                      }}
                 />
                 {cellMobileError ? <p className="error-small">Enter Mobile Number</p> : ""}
               </div>
@@ -1270,7 +1311,13 @@ const addressValue= (address) => {
                   name="email"
                     value={formEmail}
                     //onChange={handleCellChange}
-                    onChange={(e) => {setFormEmail(e.target.value), setCellEmailError(false)}}
+                    //onChange={(e) => {setFormEmail(e.target.value), setCellEmailError(false)}}
+                    onChange={(e) => {
+                      setFormEmail(e.target.value);
+                      if (!emailPattern.test(e.target.value))
+                              setCellEmailError(true);
+                        else  setCellEmailError(false);
+                      }}
                 />
                 {cellEmailError ? <p className="error-small">Please Enter Email</p> : ""}
               </div>
@@ -1452,110 +1499,3 @@ const addressValue= (address) => {
 };
 
 export default NewForm;
-
-
-
-
-
-
-
-
-
-
-// //store excel data
-  // const [dept, setDept] = useState([]);
-  // const [res, setRes] = useState([]);
-  // const [mandalam, setMandalam] = useState([]);
-  // const [districts, setDistricts] = useState([]);
-  // const [lgd, setLgd] = useState(0);
-
-
-  // //fetch excel data
-  // const readExcelFile = () => {
-  //   const url = "/files/data.xls"; // Adjust the path based on your file location
-
-  //   const fetchExcelFile = async () => {
-  //     const response = await fetch(url);
-
-  //     const arrayBuffer = await response.arrayBuffer();
-
-  //     const data = new Uint8Array(arrayBuffer);
-
-  //     const workbook = XLSX.read(data, { type: "array" });
-
-  //     // Access the first sheet of the workbook
-
-  //     const sheetName = workbook.SheetNames[0];
-
-  //     const sheet = workbook.Sheets[sheetName];
-
-  //     // Parse sheet data
-
-  //     const sheetData = XLSX.utils.sheet_to_json(sheet);
-
-  //     //   console.log(sheetData); // Output data to console
-  //     // setRes(sheetData);
-
-  //     if (pin > 500000) {
-  //       // filter based on pincode
-  //       const filteredData = sheetData.filter((row) => row.__EMPTY_10 === pin);
-
-  //       const arr = [];
-
-  //       filteredData.forEach((element) => {
-  //         arr.push(element.__EMPTY_9);
-  //       });
-
-  //       setRes(arr);
-
-  //       // res.forEach((element) => {
-  //       //   console.log(element);
-  //       // });
-  //     }
-
-  //     if (district !== null) {
-  //       const filteredData = sheetData.filter(
-  //         (row) => row.__EMPTY_1 === district
-  //       );
-
-  //       const districts = new Set();
-
-  //       filteredData.forEach((element) => {
-  //         districts.add(element.__EMPTY_5);
-  //       });
-
-  //       const distArr = Array.from(districts);
-
-  //       setDistricts(distArr);
-  //     }
-
-  //     if (mandal !== null) {
-  //       const filteredData = sheetData.filter(
-  //         (row) => row.__EMPTY_5 === mandal
-  //       );
-
-  //       const mandalSet = new Set();
-
-  //       filteredData.forEach((element) => {
-  //         mandalSet.add(element.__EMPTY_9);
-  //       });
-
-  //       const mandalArr = Array.from(mandalSet);
-
-  //       setMandalam(mandalArr);
-  //     }
-
-  //     if (gram !== null) {
-  //       const filteredData = sheetData.filter((row) => row.__EMPTY_9 === gram);
-
-  //       console.log(filteredData);
-  //       const lgdCode = filteredData[0].__EMPTY_12;
-  //       console.log(lgdCode);
-  //       setLgd(lgdCode);
-  //     }
-  //   };
-
-  //   fetchExcelFile();
-  // };
-
-  //department files relations
