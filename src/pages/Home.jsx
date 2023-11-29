@@ -14,15 +14,17 @@ const Home = () => {
 
   const loadTelanganaData = () => {
     const load = async () => {
-      const url = "/files/data.xls";
+      const url = "/files/TFiber_GIS_LGD_Code.xlsx";
       const response = await fetch(url);
       const arrayBuffer = await response.arrayBuffer();
       const data = new Uint8Array(arrayBuffer);
       const workbook = XLSX.read(data, { type: "array" });
-      const sheetName = workbook.SheetNames[0];
+      const sheetName = workbook.SheetNames[2];
       const sheet = workbook.Sheets[sheetName];
       const sheetData = XLSX.utils.sheet_to_json(sheet);
       setTelangana(sheetData);
+      console.log("Sheet: ", sheetName);
+      console.log("workbook: ", workbook);
     };
     load();
   };

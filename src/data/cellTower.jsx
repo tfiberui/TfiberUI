@@ -24,7 +24,7 @@ const pageData = {
             hexagonData: [		
                 {
                     title: 'Hub and Spoke',
-                    logo: '/public/assets/celltowerflip1.png',
+                    logo: '/public/assets/hub.gif',
                     subtitle: 'Reliable and low latency connectivity ',
                     description: 'T-Fiber offers Hub and Spoke services specifically tailored for cell towers. Our dedicated lines ensure reliable and low latency connectivity for cellular networks, enhancing quality and user experience.',
                     cta: {
@@ -46,7 +46,7 @@ const pageData = {
                 },
                 {
                     title: 'Point to Point',
-                    logo: '/public/assets/tech _1.png',
+                    logo: '/public/assets/p2p.gif',
                     subtitle: 'Secure and efficient data transmission',
                     description: 'Ensure secure and efficient data transmission between cell towers and Point of interconnection(POI) with T-Fibers point to point solutions.',
                     cta: {

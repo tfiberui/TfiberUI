@@ -39,14 +39,17 @@ const Gallery = () => {
         <div className="gallery_container">
             <div className="heading_title">
                 <h3>Gallery</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                </p>
             </div>
 
             <div className="gallery_content">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                </p>
-
+                
+                <div className="events">
+                  <h4>Event 1</h4>
+                </div>
                 <Carousel responsive={responsive}>
                   <div>
                     <img src={gallery_1_1} className="gallery_img"/>
@@ -80,14 +83,53 @@ const Gallery = () => {
                     <img src={gallery_1_2} className="gallery_img" />
                   </div>
                 </Carousel>
+                <button className="viewAll_btn">View All</button>
                 
             </div>
 
+            <div className="gallery_content">
+                
+                <div className="events">
+                  <h4>Event 2</h4>
+                </div>
+                <Carousel responsive={responsive}>
+                  <div>
+                    <img src={gallery_1_1} className="gallery_img"/>
+                  </div>
+                  <div>
+                    {" "}
+                    <img src={gallery_1_2} className="gallery_img" />
+                  </div>
+                  <div>
+                    {"  "}
+                    <img src={gallery_1_3} className="gallery_img" />
+                  </div>
+                  <div>
+                    {" "}
+                    <img src={gallery_1_4} className="gallery_img" />
+                  </div>
+                  <div>
+                    {" "}
+                    <img src={gallery_1_5} className="gallery_img" />
+                  </div>
+                  <div>
+                    {" "}
+                    <img src={gallery_1_6} className="gallery_img" />
+                  </div>
+                  <div>
+                    {" "}
+                    <img src={gallery_1_1} className="gallery_img" />
+                  </div>
+                  <div>
+                    {" "}
+                    <img src={gallery_1_2} className="gallery_img" />
+                  </div>
+                </Carousel>
+                <button className="viewAll_btn">View All</button>
+                
+            </div>
 
-           
-
-
-            
+  
 
             
         </div> 

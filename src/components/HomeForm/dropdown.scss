@@ -1,0 +1,66 @@
+.dropdown {
+    width: 100%;
+    user-select: none;
+    margin: 0px auto;
+    position: relative;
+  }
+  .dropdown .dropdown-btn {
+    padding: 10px 20px;
+    background: #fff;
+    //box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+    color: #333;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    border-radius: 20px;
+    background-color: #d9d9d9;
+    background-image: url(/public/assets/down-arrow.png);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px);
+    background-size: 11px;
+  }
+  
+  .dropdown .dropdown-content {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+    font-weight: 500;
+    color: #333;
+    width: 95%;
+    z-index: 1;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 20px;
+    border: 2px solid #7500af;
+  }
+  .dropdown .dropdown-content .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 6px;
+  }
+  .dropdown .dropdown-content .dropdown-item:hover {
+    background: rgba(127, 17, 224, 0.3);
+  }
+
+.dropdown-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    background-color: #7500af;
+    height: 60px;
+    width: 10px; 
+}

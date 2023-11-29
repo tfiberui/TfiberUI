@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Map from "../Map/Map";
 import axios from "axios";
-import { isSearchValid } from "../../../utils/validations";
+import { isSearchValid } from "../../utils/validations";
 
 const RenderMapBySearch = ({ address, searchResponse, id, clickResponse }) => {
 

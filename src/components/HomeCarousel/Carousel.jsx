@@ -4,9 +4,15 @@ import { useState } from 'react';
 import carousel_img1 from '/public/assets/Home/carousel_img1.png'
 import carousel_img2 from "/public/assets/Home/carousel_img2.png";
 import carousel_img3 from "/public/assets/Home/carousel_img3.png";
-import img1 from "/public/assets/Home/img1.png";
-import img2 from "/public/assets/Home/img2.png";
-import img3 from "/public/assets/Home/img3.png";
+
+// import img1 from "/public/assets/Home/img1.png";
+// import img2 from "/public/assets/Home/img2.png";
+// import img3 from "/public/assets/Home/img3.png";
+
+import img1 from "/public/assets/Home/cutting-edge-technology.gif";
+import img2 from "/public/assets/Home/speed.gif";
+import img3 from "/public/assets/Home/affordability.gif";
+
 import { useNavigate } from 'react-router-dom';
 
 const Carousel = () => {
