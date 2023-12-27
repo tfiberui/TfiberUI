@@ -1,0 +1,143 @@
+.documents_container{
+    width: calc(100% - 350px); //90%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.documents_content{
+    padding: 10px 40px;
+    height: 270px;
+}
+.heading{
+    padding: 45px 0px 20px 38px;
+    h2{
+        color: #B011FF;
+        font-size: 28px;
+    }
+    h4{
+        color: #B011FF;
+        font-weight: bold;
+    }
+    h3{
+        font-family: 'MontserratRegular';
+        color: #B011FF;
+        font-size: 24px;
+    }
+    h6{
+        font-size: 14px;
+        padding-top: 30px;
+        font-weight: 600;
+    }
+}
+.heading_title1{
+    margin-bottom: 30px;
+}
+
+.documents_section{
+    width: 94%;
+    border-radius: 6px;
+    margin: 0 auto;
+    padding: 60px 38px;
+    float: inline-start;
+    h4{
+        color: #B011FF;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    h5{
+        color: #B011FF;
+        font-weight: bold;
+    }
+    p{
+        line-height: 22px;
+        color: #404040;
+    }
+}
+
+.document_holder{
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+    padding: 0px 0px;
+    p{
+        padding: 0px 0px;
+    }
+}
+.docItem{
+    width: 90%;
+    float: left;
+    padding: 17px 20px;
+    p{
+        font-size: 12px;
+    }
+}
+.downloadIcon{
+    width: 40px;
+    margin: 12px 6px;
+    cursor: pointer;
+}
+.readMore_btn{
+    float: right;
+    background: transparent;
+    border: none;
+    color: #58047c;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 10px;
+}
+.leftContent{
+    width: 48%;
+    float: left;
+}
+.rightContent{
+    width: 48%;
+    float: right;
+}
+.content_card{
+    background-color: #ECECEC;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 30px;
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.2));
+    min-height: 75px;
+    padding-bottom: 35px;
+    h6{
+        font-weight: normal;
+        margin-bottom: 10px;
+    }
+}
+.viewAll_btn{
+    margin-right: 50px!important;
+}
+
+
+.leftSection{
+    float: left;
+    width: 42%;
+    height: 200px;
+    border: 2px solid #eee;
+    padding: 35px;
+    box-shadow: 0px 4px 20px 0px #00000040;
+    p{
+        margin-top: 40px;
+        line-height: 32px;
+    }
+}
+.rightSection{
+    float: right;
+    width: 42%;
+    height: 200px;
+    border: 2px solid #eee;
+    padding: 35px;
+    box-shadow: 0px 4px 20px 0px #00000040;
+    p{
+        margin-top: 40px;
+        line-height: 32px;
+    }
+    img{
+        margin: 40px auto;
+        display: block;
+        width: 380px;
+    }
+}

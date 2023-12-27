@@ -1,0 +1,19 @@
+.government {
+    .custom-select {
+        &.department, &.subdepartment {
+            width: 100%!important;
+            .selected-option {
+                min-width: calc(100% - 44px)!important;
+                max-width: calc(100% - 75px) !important;
+                text-wrap: nowrap;
+                overflow: hidden;
+            }
+            .select-options-wrapper {
+                width: max-content!important;
+            }
+        }
+    }
+}
+.option1{
+    width: 45%;
+}

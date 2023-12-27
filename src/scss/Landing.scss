@@ -1,0 +1,120 @@
+$color_1: #820bb7;
+$color_2: white;
+$font-family_1: 'Poppins', sans-serif;
+$font-family_2: "Space Grotesk", sans-serif;
+$background-color_1: #820bb7;
+$button-color: #B011FF;
+
+/* .landing_top_text > h1 {
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 5px;
+  font-size: 48px;
+} */
+* {
+	margin: 0;
+	padding: 0;
+	// font-family: $montserratBlackItalic;
+}
+.landing {
+	padding: 30px 20px;
+}
+.landing_top {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.govt_logo {
+  margin-right: 20px;
+  height: 55px;
+  width: 55px;
+  margin-bottom: 10px;
+}
+.main_logo {
+	height: 35px;
+	width: 35px;
+	margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.landing_top_text {
+	height: 56px;
+	width: 210px;
+	img{
+		height: 40px;
+	}
+	>p {
+		font-size: 7.5px;
+		font-family: $font-family_2;
+		letter-spacing: 2px;
+		margin-left: 4px;
+		margin-top: -8px;
+	}
+}
+.coloor {
+	color: $color_1;
+}
+.landing_center {
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+}
+.image_container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 100px;
+}
+.landing_main_image {
+	height: 200px;
+	width: 200px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+// .container_left {
+// 	//margin-right: 100px;
+//    width: 210px;
+// }
+.container_right{
+	text-align: center;
+}
+.details {
+	font-size: 16px;
+	font-weight: 500;
+	margin-top: 25px;
+	text-align: center;
+  color: #000;
+  font-weight: 600;
+}
+.landing_center_main_text {
+	  margin-top: 35px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: #000;
+}
+.landing_btn {
+	padding: 10px 50px;
+	margin: 65px auto 0 auto;
+	display: block;
+	border: none;
+	background-color: $button-color;
+	color: $color_2;
+	border-radius: 50px;
+	cursor: pointer;
+	//height: 50px;
+	//width: 200px;
+	font-size: 22px;
+}
+
+.landing_bottom{
+	img{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 145px;
+		width: calc(100% + 30px);
+		overflow: hidden;
+		margin-left: -30px;
+		z-index: -2;
+	}
+}

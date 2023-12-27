@@ -1,0 +1,49 @@
+.main{
+    height: 400px;
+    margin: 100px 220px;
+}
+h1{
+    font-size: 30vh;
+    color: #7500af;
+  }
+  h2{
+    span{
+        font-size: 4rem;
+        font-weight: 600;
+        color: #7500af;
+      }
+      color: #7500af;
+  } 
+  a:link, a:visited{
+    text-decoration: none;
+    color: #7500af;
+  }
+  h3 a:hover{
+    text-decoration: none;
+    background: #fff;
+    color: #3498DB;
+    cursor: pointer;
+  }
+
+  .button {
+    padding: 6px 20px;
+    display: block;
+    font-size: 16px;
+    border: 2px solid #7500af;
+    border-radius: 50px;
+    background-color: white;
+    color: #7500af;
+    //margin: 60px auto auto auto;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 29.26px;
+    float: left;
+    margin-top: 60px
+}
+.back{
+    margin-left: 20px;
+}
+.button:hover{
+    background-color: #7500af;
+    color: #fff;
+}

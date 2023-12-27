@@ -1,0 +1,160 @@
+.documents_container{
+    width: 90%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.documents_content{
+    padding: 0px 40px;
+    height: 60px !important;
+}
+.heading{
+    padding: 45px 0px 20px 38px;
+    h2{
+        color: #B011FF;
+        font-size: 28px;
+    }
+    h4{
+        color: #B011FF;
+        font-weight: bold;
+    }
+    h3{
+        font-family: 'MontserratRegular';
+        color: #B011FF;
+        font-size: 24px;
+    }
+    h6{
+        font-size: 14px;
+        padding-top: 30px;
+        font-weight: 600;
+    }
+}
+.documents_section{
+    width: 94%;
+    border-radius: 6px;
+    margin: 0 auto;
+    padding: 60px 38px;
+    float: inline-start;
+    h4{
+        color: #B011FF;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    h5{
+        color: #B011FF;
+        font-weight: bold;
+    }
+    p{
+        line-height: 22px;
+        color: #404040;
+    }
+}
+
+$material-form-label: #000000;
+$material-form-label-focus: #B011FF;
+$material-form-line: #000000;
+$material-form-line-focus: $material-form-label-focus;
+$material-form-input-text: $material-form-label;
+$material-form-input-text-focus: $material-form-label-focus;
+$material-form-field-invalid-foreground: #d50000;
+
+$material-dropdown-hoverBackground: #e8eaf6;
+$material-dropdown-selectedBackground: #9fa8da;
+$material-labelOffset: 25px;
+$material-textInputPaddingTopBottom: 10px;
+
+.material-form-field{
+    font-family: 'Roboto', sans-serif;
+    font-size:14px;
+    position:relative;
+    display:block;
+    color:$material-form-label;
+    padding:$material-labelOffset 0 10px 0;
+  
+    &::after{
+      content:"\00A0";
+      display:block;
+      color: $material-form-field-invalid-foreground;
+      font-size:12px;
+      padding-top:5px;
+    }
+  
+    .material-form-field-label{
+      position:absolute;
+      display:block;
+      top: $material-labelOffset + $material-textInputPaddingTopBottom;
+      left: 0px;
+      transition:0.2s ease all; 
+      -moz-transition:0.2s ease all; 
+      -webkit-transition:0.2s ease all;
+      pointer-events:none;
+      cursor:text;
+      color: #8e8e8e;
+      font-size: 19px;
+    }
+  
+    input{
+      padding:$material-textInputPaddingTopBottom 0 $material-textInputPaddingTopBottom 0;
+      display:block;
+      width:100%;
+      border:none;
+      font-size:18px;
+      color:$material-form-input-text;
+      border-bottom:2px solid #8e8e8e;
+      outline:none;
+      border-radius: 0px!important;
+      background-color: #ffffff!important;
+  
+      &:invalid{
+        outline:none;
+        box-shadow: none;
+      }
+      &:valid, &:focus{
+        & ~ .material-form-field-label{
+          top: $material-labelOffset - ($material-textInputPaddingTopBottom + 5);
+          font-size:12px;
+        }
+      }
+      &:focus{
+        outline:none;
+        color:$material-form-input-text-focus;
+        padding-bottom: $material-textInputPaddingTopBottom - 2;
+        border-bottom-width:3px;
+        border-bottom-color:$material-form-line-focus;
+  
+        & ~ .material-form-field-label{
+          color:$material-form-label-focus;
+        }
+  
+        & ~ .material-dropdown{
+          /*
+          If you want to animate this you will need to use some js to calculate it
+          Optionally, you can simply display:block/none 
+          */
+          height:228px; 
+          box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+          transition:0.2s ease-out height, step-start box-shadow 0.2s;
+          -moz-transition:0.2s ease-out height, step-start box-shadow 0.2s;
+          -webkit-transition:0.2s ease-out height, step-start box-shadow 0.2s;
+        }
+      }
+    }
+  
+    &.material-form-field-invalid{
+      color: $material-form-field-invalid-foreground;
+      &::after{
+        content:attr(data-validationError);
+      }
+      input:focus ~ .material-form-field-label{
+        color: $material-form-field-invalid-foreground;
+      }
+    }
+  }
+  .left{
+      float: left;
+      width: 47%;
+  }
+  .right{
+      float: right;
+      width: 47%;
+  }

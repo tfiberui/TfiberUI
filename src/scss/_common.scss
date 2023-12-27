@@ -1,0 +1,39 @@
+@import '_variables.scss';
+body {
+    margin: 0;
+    font-family: $montserratRegular;
+}
+.section {
+    width: 100%;
+}
+.container {
+    width: calc(100% - 60px);
+    max-width: 90%; //1280px;
+    margin: auto;
+}
+.error {
+    color: red;
+    font-size: 12px!important;
+}
+
+::-webkit-scrollbar {
+    width: auto;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    -webkit-border-radius: 0px;
+    border-radius: 0;
+    background: #ffffff;;
+    border: 1px solid #eee;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: #ccc;
+    -webkit-box-shadow:none;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #000;
+}

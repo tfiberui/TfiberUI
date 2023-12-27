@@ -1,0 +1,40 @@
+.curved-card {
+  width: 100%;
+  max-width: 385px;
+  min-height: 200px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 12px 12px 0px 0px rgba(120,4,172,1);
+  -moz-box-shadow: 12px 12px 0px 0px rgba(120,4,172,1);
+  box-shadow: 12px 12px 0px 0px rgba(120,4,172,1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 50px;
+  border: 2px solid #7804ac;
+  border-top: none;
+
+  img {
+    width: 110px;
+  }
+  .card-title {   
+    h3 {
+      font-size: 28px;          
+      text-align: center;      
+      color: #404040;
+      font-weight: 600;
+      padding: 51px 12px 20px;    
+    }
+  }
+  .card-para {
+    height: 56%;    
+    p {
+      font-size: 22px;    
+      text-align: center;
+      color: #404040; 
+      font-weight: 600; 
+      padding: 20px 20px 20px;  
+      font-family: MontserratThin;
+    }
+  }
+}

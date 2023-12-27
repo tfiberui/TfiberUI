@@ -1,0 +1,84 @@
+@import 'variables', 'fonts', 'mixins', 'common';
+
+/* Generic Page Style Starts */
+
+/* Generic Page Style Ends */
+
+/* Goverment Page Style Starts */
+.government, .cell, .residential, .enterprise {	
+	.curved-card-wrapper {
+		display: flex;
+		justify-content: space-between;
+		gap: 40px;
+    	position: relative;
+    	top: -80px;
+	}
+	.header-two {
+		font-size: 48px;		
+		color: #b011ff;
+		text-align: center;
+		font-weight: 600;
+    	margin: 0 0 6px;
+    	padding: 0;
+		font-family: MontserratRegular;
+	}
+	.paragraph {
+		font-size: 24px;		
+		font-weight: 500;
+		color: #000000;
+		text-align: center;
+    	margin: 0;
+    	padding: 0;
+		font-family: MontserratRegular;
+	}
+	.hexagon.section {
+		padding-top: 50px;
+		.hexagon-section {
+			padding: 100px 0;
+		}
+	}
+}
+/* Goverment Page Style Ends */
+
+/* Cell Page Style Starts */
+.cell {
+	.curved-card-wrapper{
+		top: -140px;	
+	}
+	.form-main {
+		margin-top: 80px;
+	}
+	.hexagon-section{
+		margin-top: 70px;
+		.hexagon-cards{
+			justify-content: space-around;
+		}
+	}
+}
+
+/* Cell Page Style Ends */
+
+.enterprise {
+	.curved-card-wrapper {
+		margin-top: -50px;
+	}
+
+}
+
+/* Residential Page Style Starts */
+.residential {
+	.hexagon-section {
+		.hexagon-cards {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			row-gap: 260px;
+			column-gap: 28px;
+		}
+	}
+}
+/* Residential Page Style Ends */
+
+
+
+

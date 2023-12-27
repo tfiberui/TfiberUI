@@ -1,0 +1,45 @@
+.faq_container{
+    width: calc(100% - 60px);
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+.heading_title{
+    padding: 45px 0px 20px 4px !important;
+    h4{
+        color: #58047c;
+        font-weight: bold;
+    }
+}
+.faq_holder{
+    width: 94%;
+    border-radius: 6px;
+    background-color: #eee;
+    padding: 26px 46px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    h4{
+        color: #58047c;
+        font-weight: bold;
+    }
+    h5{
+        color: #58047c;
+        font-weight: bold;
+    }
+    p{
+        line-height: 28px;
+    }
+    .boldFont{
+        font-weight: bold;
+    }
+}
+
+.readMore_btn{
+    float: right;
+    background: transparent;
+    border: none;
+    color: #58047c;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: underline;
+}

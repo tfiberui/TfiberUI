@@ -1,0 +1,63 @@
+.documents_container{
+    width: calc(100% - 60px);
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+.documents_content{
+    padding: 0px 40px;
+}
+.heading{
+    padding: 45px 0px 20px 38px!important;
+    h4{
+        color: #58047c;
+        font-weight: bold;
+    }
+    h3{
+        font-family: 'MontserratRegular';
+        color: #8c0080;
+        font-size: 24px;
+    }
+}
+.documents_section{
+    width: 94%;
+    border-radius: 6px;
+    padding: 26px 46px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    h4{
+        color: #58047c;
+        font-weight: bold;
+    }
+    h5{
+        color: #58047c;
+        font-weight: bold;
+    }
+    p{
+        line-height: 32px;
+        color: #404040;
+    }
+}
+
+.document_holder{
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+    padding: 0px 0px;
+    p{
+        padding: 0px 0px;
+    }
+}
+.docItem{
+    width: 90%;
+    float: left;
+    padding: 17px 20px;
+    p{
+        font-size: 12px;
+    }
+}
+.downloadIcon{
+    width: 40px;
+    margin: 12px 6px;
+    cursor: pointer;
+}
